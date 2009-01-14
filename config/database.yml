@@ -1,0 +1,18 @@
+login: &login
+  encoding: utf8
+  adapter: mysql
+  username: root
+  password: 
+  socket: /tmp/mysql.sock
+
+development:
+  database: customers_management
+  <<: *login
+
+test:
+  database: customers_management_test
+  <<: *login
+
+production:
+  database: customers_management
+  <<: *login
