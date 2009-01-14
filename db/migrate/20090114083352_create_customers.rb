@@ -4,7 +4,7 @@ class CreateCustomers < ActiveRecord::Migration
       t.string   :name
       t.string   :name_py
       t.string   :notes
-      t.decimal  :quotes, :scale => 2
+      t.decimal  :quotes,  :precision => 10, :scale => 2
       t.string   :email
       t.string   :fixed_line
       t.string   :msn
