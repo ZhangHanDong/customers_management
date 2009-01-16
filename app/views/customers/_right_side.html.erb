@@ -1,0 +1,12 @@
+<div class='search'>
+  <h3>Search All Customers</h3>
+	<% form_tag :controller => 'customers', :action => 'search' do -%>
+	  <input class="textInput" type="text" name="term" size="28"  />
+	  <%= submit_tag('Go', {:class => 'button'}) %>
+	  <div class="clear info">&nbsp;</div>
+	<% end -%>
+</div>
+
+<div class="button_to_add_new">
+  <%= link_to image_tag("/images/add_a_new_person.gif", :alt => "Add a new person", :border=>0), customers_path, :id => "add_a_new_person" %>
+</div>

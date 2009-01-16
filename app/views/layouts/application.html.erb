@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <%- if yield(:title) -%>
+      <title><%= AppConfig.app_name %> › <%=h yield(:title) %></title>
+    <%- else -%>
+      <title><%= AppConfig.app_name %></title>
+    <%- end -%>
+    <%= stylesheet_link_tag 'application','right' %>
+    <%= javascript_include_tag *%w[ jquery niftycube application]  %>
+    <%= yield(:head) %>
+  </head>
+  <body>
+    <div id="header">
+      <div id="upper_menu">
+        <% if logged_in? %>
+          <%= link_to h(current_user.login), users_path %>
+          <span class="" id="offline-status"> | 
+            <img width="11" height="11" src="/images/ico/off-connected-synced.gif" id="is-connected" class="" alt="" title="Currently online: click to go offline"/>
+            <img width="11" height="11" src="/images/ico/off-disconnected.gif" id="is-disconnected" class="hidden" alt="" title="Currently offline: click to go online"/>
+            <img width="11" height="11" src="/images/ico/off-connected-syncing.gif" id="is-syncing" class="hidden" alt="" title="Synchronizing..."/>
+            <span id="has-gears" class="hidden"><a onclick="try { this.blur(); Offline.Dialog.showGears(); return false; } catch(e) {} " href="#">Offline</a></span>
+            </span>
+          |
+          <%= link_to "Log-out", logout_path, { :title => "Log out" }    %>
+        <% else %>
+          <%= link_to "Log-in",  login_path,  { :title => "Log in" } %>
+          |
+          <%= link_to "Sign up", signup_path, { :title => "Create an account" } %>
+        <% end %>
+      </div>
+
+      <h1><%= link_to AppConfig.app_name, '/' %></h1>
+
+      <% if logged_in? %>
+        <ul id="menu">
+          <li><%= menu_link_to 'Customers', {:controller => "customers",:action => "index"} %></li>
+          <li><%= menu_link_to 'Users', {:controller => "users", :action => "new"} %></li>
+        </ul>
+      <% end %>
+    </div>
+
+    <div id="container">
+      <%= yield %>
+    </div>
+
+    <div id="right">
+      <%= yield(:right) %>
+    </div>
+
+    <div id="footer" class="clear">
+      <%= render :partial => "/shared/footer" %>
+    </div>
+    
+    <%= javascript_include_tag "gears_init" %>
+    <%= javascript_include_tag "gears" %>
+    <script type="text/javascript">
+      window.onload=function(){
+        Nifty("div#todo_new_action_container","normal");
+      }
+      var gears = Gears;
+    </script>
+    
+  </body>
+</html>

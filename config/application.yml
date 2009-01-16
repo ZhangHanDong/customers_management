@@ -1,0 +1,10 @@
+:defaults: &defaults
+  :app_name: Red/Customers Management
+  :app_domain: localhost:3000
+  :app_site: http://localhost:3000
+  :admin_email: info@example.com
+  :other_site: http://localhost:3000
+
+:development:
+  <<: *defaults
+
