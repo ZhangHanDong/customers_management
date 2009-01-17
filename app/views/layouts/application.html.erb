@@ -1,6 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
@@ -17,7 +18,7 @@
     <div id="header">
       <div id="upper_menu">
         <% if logged_in? %>
-          <%= link_to h(current_user.login), users_path %>
+          <label><%= h(current_user.login) %></label>
           <span class="" id="offline-status"> | 
             <img width="11" height="11" src="/images/ico/off-connected-synced.gif" id="is-connected" class="" alt="" title="Currently online: click to go offline"/>
             <img width="11" height="11" src="/images/ico/off-disconnected.gif" id="is-disconnected" class="hidden" alt="" title="Currently offline: click to go online"/>

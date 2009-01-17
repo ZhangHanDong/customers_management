@@ -10,11 +10,6 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, 
   margin:0;
   padding:0;
 }
-/*#header #upgrade_bar {
-	margin-top:-4px;
-	padding-top:3px;
-	background-color:#990000;
-}*/
 
 #header {
   margin-bottom: 10px;
@@ -164,4 +159,12 @@ div.bulk_bar {
 	margin:3px 0 0;
 	padding:10px;
 	text-align:center;
+}
+
+#right #add_a_new_person img {
+	border:0px;
+}
+
+#upper_menu label{
+	color:#55c72e;
 }
