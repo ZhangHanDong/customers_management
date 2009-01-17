@@ -128,6 +128,12 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, 
   line-height: 1.4em;
 }
 
+#right .search input.textInput{
+	width: 135px;
+	float: left;
+	margin-right: 5px;
+}
+
 #is-syncing, #is-connected, #is-disconnected {
   border:1px solid #FFFFFF;
   cursor:pointer;
