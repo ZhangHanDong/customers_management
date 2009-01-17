@@ -6,6 +6,7 @@ body {
   color: #000000;
 }
 
+
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea,  blockquote, th, td, b {
   margin:0;
   padding:0;
@@ -161,7 +162,7 @@ div.bulk_bar {
 	text-align:center;
 }
 
-#right #add_a_new_person img {
+img {
 	border:0px;
 }
 
