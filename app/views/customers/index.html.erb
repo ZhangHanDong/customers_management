@@ -1,16 +1,64 @@
 <% title 'Customers' %>
-
 <%= render :partial => "/shared/notice" %>
-<div class="customers">
-  <h1>Customers List</h1>
 
+<div id="add_new_person">
+  <div class="page_header">
+    <h1> Add a new Person </h1>
+  </div>
   
-  
+  <div class="innercol">
+    <% form_for :customer, @customer, :url => customers_path, :html => { :class => "new_customer", :id => "new_customer" } do |f| %>
+      <table class="first_and_last_name">
+         <tbody>
+           <tr>
+               <td>
+                   <p>
+                     <%= f.label :first_name, 'First Name',:for => "customer_first_name" %><br/>
+                     <%= f.text_field :first_name, :class => "name", :size => "30" %>
+                   </p>
+               </td>
+               <td>
+                   <p><%= f.label :last_name, 'Last Name', :for => "customer_last_name" %><br/>
+                   <%= f.text_field :last_name, :class => "name", :size => "30" %>
+                   </p>
+               </td>
+           </tr>
+         </tbody>
+      </table>
+      
+      <p>
+         Title<br/>
+         <%= f.text_field :title, :class => "title", :size => "30" %>
+      </p>
+
+      <p class="company">
+        Company<br/>
+        <%= f.text_field :company, :class => "title", :size => "30" %>
+      </p>
+
+      <div class="contact_forms">
+         <div id="link_to_show_contact_section">
+           <p>
+             <a class="add_contack_info" href="#">Add contact information</a>
+             <span style="color: rgb(153, 153, 153);">—</span> You can do this later.
+           </p>
+         </div>
+         <div id="contact_section">
+           contect list
+         </div>
+      </div>
+
+      <p class="submit">
+        <input type="submit" value="Add this person" name="commit"/> or 
+        <a href="#" class="admin">Cancel</a>
+      </p>
+    <% end %>
+  </div>
 </div>
 
-
-
-
+<div id="customers">
+  <h1>Customers List</h1>
+</div>
 
 <% content_for(:right) do-%>
   <%= render :partial => 'right_side' %>

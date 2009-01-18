@@ -12,6 +12,10 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, 
   padding:0;
 }
 
+input {
+  font-size:14px;
+}
+
 #header {
   margin-bottom: 10px;
   padding-left: 30px;
@@ -128,7 +132,7 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, 
   line-height: 1.4em;
 }
 
-#right .search input.textInput{
+#right #search input.textInput{
 	width: 135px;
 	float: left;
 	margin-right: 5px;
@@ -174,4 +178,56 @@ img {
 
 #upper_menu label{
 	color:#55c72e;
+}
+
+#add_new_person {
+	display:none;
+}
+
+.submit input, input.submit {
+	color:#000000;
+	width:auto;
+}
+
+a.admin:link, a.admin:visited {
+	color:#FF0000;
+	font-family:verdana;
+	font-size:11px;
+	font-weight:normal;
+}
+
+a.admin:hover {
+	background:#FF0000 none repeat scroll 0 0;
+	color:#FFFFFF;
+}
+/*========================*/
+/* add new person form */
+div#add_new_person .innercol {
+	padding-left:90px;
+	padding-top:5px;
+	width:70%;
+}
+
+div#add_new_person table.first_and_last_name input {
+	font-weight:bold;
+	margin-right:10px;
+}
+
+div#add_new_person p {
+	font-size:13px;
+	margin:5px 0;
+}
+
+div#add_new_person input.title {
+  font-weight:bold;
+}
+
+#contact_section {
+	display: none;
+}
+
+div.contact_forms, div#add_new_person .innercol p.submit {
+	border-top:1px dashed #CCCCCC;
+	margin-top:20px;
+	padding:5px 0;
 }

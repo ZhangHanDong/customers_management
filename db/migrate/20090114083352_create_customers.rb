@@ -1,14 +1,17 @@
 class CreateCustomers < ActiveRecord::Migration
   def self.up
     create_table :customers do |t|
-      t.string   :name
-      t.string   :name_py
+      t.string   :first_name
+      t.string   :first_name_py
+      t.string   :last_name
+      t.string   :last_name_py
+      t.string   :title
+      t.string   :title_py
       t.string   :notes
       t.decimal  :quotes,  :precision => 10, :scale => 2
       t.string   :email
-      t.string   :fixed_line
-      t.string   :msn
-      t.string   :qq
+      t.string   :phone
+      t.string   :im
       t.string   :account_num
       t.string   :serial_num
       t.string   :city

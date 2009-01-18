@@ -1,4 +1,4 @@
-<div class='search'>
+<div id='search'>
   <h3>Search All Customers</h3>
 	<% form_tag :controller => 'customers', :action => 'search' do -%>
 	  <p>
@@ -9,6 +9,6 @@
 	<% end -%>
 </div>
 
-<div class="button_to_add_new">
-  <%= link_to image_tag("/images/add_a_new_person.gif", :alt => "Add a new person"), customers_path, :id => "add_a_new_person" %>
+<div id="button_to_add_new">
+  <%= link_to image_tag("/images/add_a_new_person.gif", :alt => "Add a new person"), '#', :id => "add_a_new_person" %>
 </div>
