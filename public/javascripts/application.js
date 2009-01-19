@@ -14,6 +14,13 @@ jQuery.ajaxSetup({
 	'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")},
 });
 
+// ajax submit
+jQuery.fn.submitWithAjax = function(){
+	this.submit(function(){
+		$.post($(this).attr("action"), $(this).serialize(), null, "script");
+		return false;
+	})
+}
 
 $(document).ready(function() {
 	$("#button_to_add_new").click(function() {
@@ -33,4 +40,6 @@ $(document).ready(function() {
 	  $('#link_to_show_contact_section').hide();
 	  return false;	
 	});
+	
+	$("#new_customer").submitWithAjax();
 });

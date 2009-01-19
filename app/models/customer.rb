@@ -10,5 +10,6 @@ class Customer < ActiveRecord::Base
   has_many :clients, :class_name => "Client", :foreign_key => "customer_id"
   has_many :addresses, :class_name => "Address", :foreign_key => "customer_id"
   
+  validates_presence_of :first_name
   
 end
