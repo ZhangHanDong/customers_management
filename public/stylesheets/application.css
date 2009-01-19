@@ -159,18 +159,30 @@ input {
 }
 
 /* flash message*/
-#flash_message.bulk_bar{
-  background-color:#D2FBD7;
-  border-top:1px solid #8EED9D;
+#flash_message.growlUI{
+  background-color:#000000;
+  border-top:1px solid #000000;
+  font-weight: bold;
+  font-size: 14px;
+  height: 60px;
+  padding-top:20px;
 }
 
-div.bulk_bar {
-	font-size:12px;
-	line-height:0.5em;
-	margin:3px 0 0;
-	padding:10px;
-	text-align:center;
+div.growlUI span{
+	padding-bottom:20px;
+	padding-left:60px;
+	padding-top:20px;
+	margin-left:-13px;
 }
+
+div.growlUI span.notice {
+  background:transparent url(/images/accept_notice.png) no-repeat scroll 10px 10px;
+}
+
+div.growlUI span.warning {
+  background:transparent url(/images/false_warning.png) no-repeat scroll 10px 10px;
+}
+
 
 img {
 	border:0px;
@@ -227,7 +239,32 @@ div#add_new_person input.title {
 }
 
 div.contact_forms, div#add_new_person .innercol p.submit {
-	border-top:1px dashed #CCCCCC;
+	border-top:1px dashed #55C72E;
 	margin-top:20px;
 	padding:5px 0;
+}
+
+div.contact_forms h2 {
+	font-size:13px;
+	font-weight:normal;
+	margin-top:10px;
+}
+
+table.contact_forms td.add {
+	font-size:11px;
+	padding-bottom:10px;
+	text-align:right;
+}
+
+table.contact_forms { 
+	width:98%;
+}
+
+table.contact_forms td {
+	padding:0 5px 0 0;
+	width:85%;
+}
+
+table.contact_forms td input,  table.contact_forms td textarea {
+    width:100%;
 }

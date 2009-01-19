@@ -27,27 +27,27 @@
       </table>
       
       <p>
-         Title<br/>
-         <%= f.text_field :title, :class => "title", :size => "30" %>
+        Title<br/>
+        <%= f.text_field :title, :class => "title", :size => "30" %>
       </p>
 
       <p class="company">
         Company<br/>
         <%= f.text_field :company, :class => "title", :size => "30" %>
       </p>
-
+      
       <div class="contact_forms">
-         <div id="link_to_show_contact_section">
-           <p>
-             <a class="add_contack_info" href="#">Add contact information</a>
-             <span style="color: rgb(153, 153, 153);">—</span> You can do this later.
-           </p>
-         </div>
-         <div id="contact_section">
-           contect list
-         </div>
+        <div id="link_to_show_contact_section">
+          <p>
+            <a class="add_contack_info" href="#">Add contact information</a>
+             > You can do this later.
+          </p>
+        </div>
+        <div id="contact_section">
+          <%= render :partial => 'contact_infomation', :locals => { :f => f } %>
+        </div>
       </div>
-
+      
       <p class="submit">
         <input type="submit" value="Add this person" name="commit"/> or 
         <a href="#" class="admin">Cancel</a>

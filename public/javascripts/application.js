@@ -2,6 +2,19 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 
+// rails auth token enabled in jquery
+$(document).ajaxSend(function(event, request, settings) {
+	if (typeof(AUTH_TOKEN) == "undefined") return;
+	settings.data = settings.data || "";
+	settings.data += (settings.data ? "&" : "") + "authenticity_token=" + encodeURIComponent(AUTH_TOKEN);
+});
+
+// add javascript request type
+jQuery.ajaxSetup({
+	'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")},
+});
+
+
 $(document).ready(function() {
 	$("#button_to_add_new").click(function() {
 		$("#add_new_person").show();

@@ -11,7 +11,9 @@
       <title><%= AppConfig.app_name %></title>
     <%- end -%>
     <%= stylesheet_link_tag 'application' %>
-    <%= javascript_include_tag *%w[ jquery niftycube application]  %>    
+    <%= javascript_include_tag *%w[ jquery jquery.blockUI niftycube application ]  %>
+    <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? %>
+    
     <%= yield(:head) %>
   </head>
   <body>
@@ -38,7 +40,7 @@
 
       <% if logged_in? %>
         <ul id="menu">
-          <li><%= menu_link_to 'Customers', {:controller => "customers",:action => "index"} %></li>
+          <li><%= menu_link_to 'Customers', {:controller => "customers" } %></li>
           <li><%= menu_link_to 'Users', {:controller => "users", :action => "new"} %></li>
         </ul>
       <% end %>

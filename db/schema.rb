@@ -9,28 +9,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090115200345) do
+ActiveRecord::Schema.define(:version => 20090118231136) do
 
-  create_table "customers", :force => true do |t|
-    t.string   "first_name"
-    t.string   "first_name_py"
-    t.string   "last_name"
-    t.string   "last_name_py"
-    t.string   "title"
-    t.string   "title_py"
-    t.string   "notes"
+  create_table "contact_datas", :force => true do |t|
+    t.integer  "customer_id"
+    t.string   "type"
+    t.string   "location"
+    t.string   "website"
     t.decimal  "quotes",              :precision => 10, :scale => 2
+    t.string   "serial_num"
     t.string   "email"
     t.string   "phone"
-    t.string   "im"
-    t.string   "account_num"
-    t.string   "serial_num"
-    t.string   "city"
-    t.string   "city_py"
-    t.string   "province"
-    t.string   "province_py"
-    t.string   "company"
-    t.string   "company_py"
+    t.string   "instant_message"
+    t.string   "protocol"
     t.string   "urban_area"
     t.string   "urban_area_py"
     t.string   "reseller_company"
@@ -41,9 +32,28 @@ ActiveRecord::Schema.define(:version => 20090115200345) do
     t.string   "client_name"
     t.string   "client_name_py"
     t.string   "client_mobile"
-    t.string   "post_code"
-    t.string   "website"
-    t.string   "address"
+    t.string   "street"
+    t.string   "city"
+    t.string   "city_py"
+    t.string   "state"
+    t.string   "state_py"
+    t.string   "zip"
+    t.string   "country"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "customers", :force => true do |t|
+    t.string   "first_name"
+    t.string   "first_name_py"
+    t.string   "last_name"
+    t.string   "last_name_py"
+    t.string   "title"
+    t.string   "title_py"
+    t.string   "notes"
+    t.string   "account_num"
+    t.string   "company"
+    t.string   "company_py"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

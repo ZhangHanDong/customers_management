@@ -1,0 +1,31 @@
+<h2>Phone numbers</h2>
+<table id="phone_number_list_person" class="contact_forms phone_numbers">
+  <tbody>
+    <% @customer.contact_datas.each do |contact_data| %>
+    <tr>
+      <td>
+      <% fields_for "customer[contact_data][phone_numbers][]",contact_data do |f| %>
+        <%= f.text_field :phone, :class => "title", :size => "30" %>
+      <% end %>
+      </td>
+
+      <th>
+        <% fields_for "customer[contact_data][phone_numbers][]", contact_data do |f| %>
+           <%= f.select :location, %w(Work Mobile Fax Pager Home Skype Fixed_Line).map{|item| [item,item]} %>
+        <% end %>
+        </th>
+      <td class="addremove"><a onclick="new Ajax.Request('/people/0/contact_methods/xb2c744470028624961f54e/delete?type=phone_number', {asynchronous:true, evalScripts:true}); return false;" href="#" class="image"><img src="/images/remove.gif" alt="Remove"/></a></td>
+      </tr>
+      
+      
+    <% end %>
+    
+    <tr id="add_person_phone_number">
+      <td class="add">
+        <a onclick="new Ajax.Request('/people/0/contact_methods/new?type=phone_number', {asynchronous:true, evalScripts:true, method:'get'}); return false;" href="#">Add another</a>
+      </td>
+      <th> </th>
+      <td class="addremove"/>
+    </tr>
+  </tbody>
+</table>

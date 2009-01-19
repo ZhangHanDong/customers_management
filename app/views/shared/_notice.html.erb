@@ -1,10 +1,29 @@
 <% if flash[:error] or flash[:notice] %>
-<div id="flash_message" class="bulk_bar">
+<div id="flash_message" class="growlUI" style="display:none;">
   <span <% if flash[:error] %>class="warning"<% elsif flash[:notice] %>class='notice'<% end %>> 
     <%= flash[:error] || flash[:notice] %>  
   </span>
 </div>  
 <script type="text/javascript">  
-  setTimeout(function() {$("#flash_message").hide()}, 2000);  
+  // notice style
+	$.blockUI({  
+      message: $('div.growlUI'), 
+      fadeIn: 700, 
+      fadeOut: 700, 
+      timeout: 3000, 
+      showOverlay: false, 
+      centerY: false, 
+      css: {  
+          width: '260px', 
+          top: '10px',  
+          left: '',  
+          right: '10px',  
+          border: 'none', 
+          padding: '5px', 
+          backgroundColor: '#000',
+          opacity: '.9', 
+          color: '#ffffff'
+      } 
+    });
 </script>
 <% end %>
