@@ -1,0 +1,29 @@
+<% if @customer.errors.blank? %>
+  $("#flash_message").html("<span class='notice'> <%= flash[:notice] %> </span>");
+  $("#new_customer")[0].reset();
+  $("#add_new_person").hide();
+  $("#customers").show();
+<% else %>
+  $("#flash_message").html("<span class='warning'> <%= flash[:error] %></span>");
+<% end %>
+
+// notice style
+$.blockUI({  
+  message: $('div.growlUI'), 
+  fadeIn: 700, 
+  fadeOut: 700, 
+  timeout: 3000, 
+  showOverlay: false, 
+  centerY: false, 
+  css: {  
+      width: '260px', 
+      top: '10px',  
+      left: '',  
+      right: '10px',  
+      border: 'none', 
+      padding: '5px', 
+      backgroundColor: '#000',
+      opacity: '.9', 
+      color: '#ffffff'
+  } 
+});
