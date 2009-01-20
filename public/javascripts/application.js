@@ -41,5 +41,10 @@ $(document).ready(function() {
 	  return false;	
 	});
 	
+	$("#phone_number_list_person td.add a").click(function() {
+	   // $("#phone_number_list_person")
+	   return false;
+	});
+	
 	$("#new_customer").submitWithAjax();
 });

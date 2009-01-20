@@ -15,7 +15,7 @@ class CustomersController < ApplicationController
       respond_to do |format|
         format.html{
           if @customer.save
-            # flash[:notice] = " Customer has been Saved! "
+            flash[:notice] = " Customer has been Saved! "
             redirect_to :controller => "customers"
           else
             render :action => "edit"

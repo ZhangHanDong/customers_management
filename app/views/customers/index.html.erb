@@ -25,7 +25,12 @@
            </tr>
          </tbody>
       </table>
-      
+
+      <p>
+        Account Number<br/>
+        <%= f.text_field :account_num, :class => "title", :size => "30" %>
+      </p>
+          
       <p>
         Title<br/>
         <%= f.text_field :title, :class => "title", :size => "30" %>
@@ -45,6 +50,10 @@
         </div>
         <div id="contact_section">
           <%= render :partial => 'contact_infomation', :locals => { :f => f } %>
+          <p>
+            Info about this person (bio, misc. notes, how you met, etc.)<br/>
+            <%= f.text_area :notes, :class => "title", :cols => 57, :rows => 5 %>
+          </p>
         </div>
       </div>
       
