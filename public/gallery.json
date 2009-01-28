@@ -1,0 +1,21 @@
+{
+  "betaManifestVersion": 1,
+  "version": "1.0",
+  "entries": [
+    { "url": "ajax-gallery-demo.html"},
+    { "url": "gears_offline.js"},
+    { "url": "gears_init.js"},
+    { "url": "ajax-gears.js"},
+    { "url": "gallery.js"},
+    { "url": "robots/asimo.jpg"},
+    { "url": "robots/manoi.jpg"},
+    { "url": "robots/nao.jpg"},
+    { "url": "robots/repliee.jpg"},
+    { "url": "robots/robonova.jpg"},
+    { "url": "robots/thumb-asimo.jpg"},
+    { "url": "robots/thumb-manoi.jpg"},
+    { "url": "robots/thumb-nao.jpg"},
+    { "url": "robots/thumb-repliee.jpg"},
+    { "url": "robots/thumb-robonova.jpg"}      
+    ]
+}
