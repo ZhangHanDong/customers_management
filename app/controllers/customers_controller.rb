@@ -9,6 +9,7 @@ class CustomersController < ApplicationController
   
   def create
     if request.post?
+      Customer.new.contact_datas.build
       @customer = Customer.new( params[:customer] )
       respond_to do |format|
         if @customer.save
