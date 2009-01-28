@@ -1,4 +1,4 @@
 <tr id = <%= "row_company_#{customer.id}" %> >
-   <td><%= customer.first_name %></td>
-   <td class="contact_info"><%= customer.last_name %></td> 
+   <td><%= h customer.first_name %></td>
+   <td class="contact_info"><%= h customer.last_name %></td> 
 </tr>
