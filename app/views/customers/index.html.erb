@@ -14,12 +14,12 @@
                <td>
                    <p>
                      <%= f.label :first_name, 'First Name',:for => "customer_first_name" %><br/>
-                     <%= f.text_field :first_name, :class => "name", :size => "30" %>
+                     <%= f.text_field :first_name, :size => "30" %>
                    </p>
                </td>
                <td>
                    <p><%= f.label :last_name, 'Last Name', :for => "customer_last_name" %><br/>
-                   <%= f.text_field :last_name, :class => "name", :size => "30" %>
+                   <%= f.text_field :last_name, :size => "30" %>
                    </p>
                </td>
            </tr>
@@ -58,7 +58,7 @@
       </div>
       
       <p class="submit">
-        <input type="submit" value="Add this person" name="commit"/> or 
+        <input type="submit" value="Add this person" name="submit" class = "submit" /> or 
         <a href="#" class="admin">Cancel</a>
       </p>
     <% end %>
@@ -66,9 +66,37 @@
 </div>
 
 <div id="customers">
-  <h1>Customers List</h1>
+  <h1>Customers Lists</h1>
+  
+  <% form_for(:customer, :html => { :method => :delete }) do |f| %>
+  <table class="index">
+     <tbody id = "customers_list">
+       <%= render :partial => @customers %>
+     </tbody>
+  </table>
+  <% end %>
 </div>
 
 <% content_for(:right) do-%>
   <%= render :partial => 'right_side' %>
 <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

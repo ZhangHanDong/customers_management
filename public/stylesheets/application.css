@@ -265,6 +265,31 @@ table.contact_forms td {
 	width:85%;
 }
 
+
 table.contact_forms td input,  table.contact_forms td textarea {
     width:100%;
+}
+
+table.contact_forms th select {
+	font-size:14px;
+	width:110px;
+}
+
+table#instant_messager_list_person td input {
+	vertical-align:middle;
+	width:70%;
+}
+
+table#instant_messager_list_person td select {
+	vertical-align:middle;
+	width:27%;
+}
+
+table.addresses td.fields {
+   padding-bottom:8px;
+}
+
+table.contact_forms td input.blank,  table.contact_forms td textarea.blank {
+	color:#999999;
+	font-size:14px;
 }

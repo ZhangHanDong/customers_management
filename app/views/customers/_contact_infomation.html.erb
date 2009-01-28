@@ -11,7 +11,7 @@
 
         <th>
           <% fields_for "customer[contact_data][phone_numbers][]", contact_data do |f| %>
-            <%= f.select :location, %w(Work Mobile Fax Pager Home Skype Fixed_Line).map{|item| [item,item]} %>
+            <%= f.select :location, %w(Work Mobile Fax Pager Home Skype Fixed-Line).map{|item| [item,item]} %>
           <% end %>
         </th>
         <td class="addremove"><a href="#" class="image"><img src="/images/remove.gif" alt="Remove"/></a></td>
@@ -27,3 +27,230 @@
     </tr>
   </tbody>
 </table>
+
+<h2>Email address</h2>
+<table id="email_address_list_person" class="contact_forms email_addresses">
+  <tbody>
+    <% @customer.contact_datas.each do |contact_data| %>
+      <tr>
+        <td>
+          <% fields_for "customer[contact_data][email_addresses][]",contact_data do |f| %>
+            <%= f.text_field :email, :class => "title", :size => "30" %>
+          <% end %>
+        </td>
+
+        <th>
+          <% fields_for "customer[contact_data][email_addresses][]", contact_data do |f| %>
+            <%= f.select :location, %w(Work Home Other).map{|item| [item,item]} %>
+          <% end %>
+        </th>
+        <td class="addremove"><a href="#" class="image"><img src="/images/remove.gif" alt="Remove"/></a></td>
+      </tr>
+    <% end %>
+    
+    <tr id="add_person_email_addresses">
+      <td class="add">
+        <a href="#">Add another</a>
+      </td>
+      <th> </th>
+      <td class="addremove"/>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Instant messenger</h2>
+<table id="instant_messager_list_person" class="contact_forms instant_messagers">
+  <tbody>
+    <% @customer.contact_datas.each do |contact_data| %>
+      <tr>
+        <td class="instant_messager">
+          <% fields_for "customer[contact_data][instant_messagers][]",contact_data do |f| %>
+            <%= f.text_field :instant_message, :class => "title", :size => "30" %>
+            <%= f.select :protocol, %w(MSN QQ Skype Other).map{|item| [item,item]} %>
+          <% end %>
+        </td>
+
+        <th>
+          <% fields_for "customer[contact_data][instant_messagers][]", contact_data do |f| %>
+            <%= f.select :location, %w(Work Home Other).map{|item| [item,item]} %>
+          <% end %>
+        </th>
+        <td class="addremove"><a href="#" class="image"><img src="/images/remove.gif" alt="Remove"/></a></td>
+      </tr>
+    <% end %>
+    
+    <tr id="add_person_instant_messagers">
+      <td class="add">
+        <a href="#">Add another</a>
+      </td>
+      <th> </th>
+      <td class="addremove"/>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Red One</h2>
+<table id="red_one_list_person" class="contact_forms red_ones">
+  <tbody>
+    <% @customer.contact_datas.each do |contact_data| %>
+      <tr>
+        <td>
+          <% fields_for "customer[contact_data][red_ones][]",contact_data do |f| %>
+            <%= f.text_field :quotes, :class => "blank", :id => "quotes",:size => "30", :value => "Quote"  %>
+            <%= f.text_field :serial_num, :class => "blank", :id => "serial_num", :size => "30", :value => "Serial Number"  %>
+          <% end %>
+        </td>
+
+        <td class="addremove"><a href="#" class="image"><img src="/images/remove.gif" alt="Remove"/></a></td>
+      </tr>
+    <% end %>
+    
+    <tr id="add_person_red_ones">
+      <td class="add">
+        <a href="#">Add another</a>
+      </td>
+      <th> </th>
+      <td class="addremove"/>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Urban areas</h2>
+<table id="urban_area_list_person" class="contact_forms urban_areas">
+  <tbody>
+    <% @customer.contact_datas.each do |contact_data| %>
+      <tr>
+        <td>
+          <% fields_for "customer[contact_data][urban_areas][]",contact_data do |f| %>
+            <%= f.text_field :urban_area, :class => "title", :size => "30" %>
+          <% end %>
+        </td>
+        <td class="addremove"><a href="#" class="image"><img src="/images/remove.gif" alt="Remove"/></a></td>
+      </tr>
+    <% end %>
+    
+    <tr id="add_person_urban_areas">
+      <td class="add">
+        <a href="#">Add another</a>
+      </td>
+      <th> </th>
+      <td class="addremove"/>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Reseller</h2>
+<table id="reseller_list_person" class="contact_forms resellers">
+  <tbody>
+    <% @customer.contact_datas.each do |contact_data| %>
+      <tr>
+        <td>
+          <% fields_for "customer[contact_data][resellers][]",contact_data do |f| %>
+            <%= f.text_field :reseller_company, :class => "blank", :id => "reseller_company", :size => "30", :value => "Reseller Company"  %>
+            <%= f.text_field :reseller_name, :class => "blank", :id => "reseller_name", :size => "30", :value => "Reseller Name"  %>
+            <%= f.text_field :reseller_mobile, :class => "blank", :id => "reseller_mobile", :size => "30", :value => "Reseller Mobile"  %>
+          <% end %>
+        </td>
+        <td class="addremove"><a href="#" class="image"><img src="/images/remove.gif" alt="Remove"/></a></td>
+      </tr>
+    <% end %>
+    
+    <tr id="add_person_resellers">
+      <td class="add">
+        <a href="#">Add another</a>
+      </td>
+      <th> </th>
+      <td class="addremove"/>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Client</h2>
+<table id="client_list_person" class="contact_forms clients">
+  <tbody>
+    <% @customer.contact_datas.each do |contact_data| %>
+      <tr>
+        <td>
+          <% fields_for "customer[contact_data][clients][]",contact_data do |f| %>
+            <%= f.text_field :client_name, :class => "blank", :id => "client_name", :size => "30", :value => "Client Name"  %>
+            <%= f.text_field :client_mobile, :class => "blank", :id => "client_mobile", :size => "30", :value => "Client Mobile"  %>
+          <% end %>
+        </td>
+        <td class="addremove"><a href="#" class="image"><img src="/images/remove.gif" alt="Remove"/></a></td>
+      </tr>
+    <% end %>
+    
+    <tr id="add_person_clients">
+      <td class="add">
+        <a href="#">Add another</a>
+      </td>
+      <th> </th>
+      <td class="addremove"/>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<h2>Web sites</h2>
+<table id="web_address_list_person" class="contact_forms web_addresses">
+  <tbody>
+    <% @customer.contact_datas.each do |contact_data| %>
+      <tr>
+        <td>
+          <% fields_for "customer[contact_data][web_addresses][]",contact_data do |f| %>
+            <%= f.text_field :website, :class => "title", :size => "30" %>
+          <% end %>
+        </td>
+
+        <th>
+          <% fields_for "customer[contact_data][web_addresses][]", contact_data do |f| %>
+            <%= f.select :location, %w(Work Personal Other).map{|item| [item,item]} %>
+          <% end %>
+        </th>
+        <td class="addremove"><a href="#" class="image"><img src="/images/remove.gif" alt="Remove"/></a></td>
+      </tr>
+    <% end %>
+    
+    <tr id="add_person_web_addresses">
+      <td class="add">
+        <a href="#">Add another</a>
+      </td>
+      <th> </th>
+      <td class="addremove"/>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Street addresses</h2>
+<table id="address_list_person" class="contact_forms addresses">
+  <tbody>
+    <% @customer.contact_datas.each do |contact_data| %>
+    <tr class="street">
+       <td class="fields">
+         <% fields_for "customer[contact_data][addresses][]",contact_data do |f| %>
+           <%= f.text_area :street, :class => "autofocus blank", :id => "street", :size => "30", :value => "Street" %>
+           <%= f.text_field :city, :class => "blank", :id => "city", :size => "30", :value => "City"  %>
+           <%= f.text_field :state, :class => "blank", :id => "state", :size => "30", :value => "State"  %>
+           <%= f.text_field :zip, :class => "blank", :id => "zip", :size => "30", :value => "Zip"  %>
+           <%= f.text_field :country, :class => "blank", :id => "country", :size => "30", :value => "Country"  %>
+         <% end %>
+       </td>
+       <th>
+         <% fields_for "customer[contact_data][addresses][]", contact_data do |f| %>
+           <%= f.select :location, %w(Work Home Other).map{|item| [item,item]} %>
+         <% end %>
+       </th>
+       <td class="addremove"><a href="#" class="image"><img src="/images/remove.gif" alt="Remove"/></a></td>
+    </tr>
+    <% end %>
+    <tr id="add_person_web_addresses">
+      <td class="add">
+        <a href="#">Add another</a>
+      </td>
+      <th> </th>
+      <td class="addremove"/>
+    </tr>    
+
+  </tbody>
+</table>  

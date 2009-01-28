@@ -11,10 +11,10 @@
       <title><%= AppConfig.app_name %></title>
     <%- end -%>
     <%= stylesheet_link_tag 'application' %>
-    <%= javascript_include_tag *%w[ jquery jquery.blockUI niftycube application ]  %>
+    <%= javascript_include_tag  %w[ jquery jquery.blockUI jquery-form jquery.validate jquery-ui jquery.init jquery.offline application ] %>
     <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? %>
-    
     <%= yield(:head) %>
+
   </head>
   <body>
     <div id="header">
@@ -57,15 +57,6 @@
     <div id="footer" class="clear">
       <%= render :partial => "/shared/footer" %>
     </div>
-    
-    <%= javascript_include_tag "gears_init" %>
-    <%= javascript_include_tag "gears" %>
-    <script type="text/javascript">
-      window.onload=function(){
-        Nifty("div#todo_new_action_container","normal");
-      }
-      var gears = Gears;
-    </script>
     
   </body>
 </html>
