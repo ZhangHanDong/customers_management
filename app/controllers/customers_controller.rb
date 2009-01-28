@@ -8,14 +8,8 @@ class CustomersController < ApplicationController
   end
   
   def create
-    @customer = Customer.new
-    @customer.contact_datas.build
     if request.post?
-      @customer = Customer.new( params[:customer])
-      # :company => params[:customer][:company],
-      #                           :title   => params[:customer][:title],
-      #                           :first_name => params[:customer][:first_name],
-      #                           :last_name  => params[:customer][:last_name]
+      @customer = Customer.new( params[:customer] )
       respond_to do |format|
         if @customer.save
             format.html{

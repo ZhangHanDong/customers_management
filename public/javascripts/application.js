@@ -98,6 +98,7 @@ $(document).ready(function() {
 		//         }
 		if( $("#offline-status img#is-connected").offline.init() ){
 		    $("#offline-status img#is-connected").offline.offlineCreateStore();
+		    flashMessage('you can use in offline model!');
         }
         
 		// 
@@ -107,7 +108,7 @@ $(document).ready(function() {
 		// 		// $("#offline-status img#is-connected").hide();
 		// 		// $("#offline-status img#is-syncing").show();
 		// 		// 
-		flashMessage('you can use in offline model!');
+		
 	});
 	
 	
