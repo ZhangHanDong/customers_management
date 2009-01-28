@@ -1,7 +1,14 @@
-== this is a customers-management system, and an offline web application for my company. 
+# Customers Management
 
-== Author  : Alex (blackanger.z@gmail.com)
+this is a customers-management system, and an offline web application for my company. 
 
-== Company : Red.com
+# Author
 
-== 2009.1.14
+Alex (blackanger.z@gmail.com)
+
+# Company
+
+Red.com
+
+# Time
+2009.1.14
