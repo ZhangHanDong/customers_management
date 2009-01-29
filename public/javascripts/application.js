@@ -14,69 +14,230 @@ jQuery.ajaxSetup({
 	'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")},
 });
 
-function addToCustomerList(responseText){
+// generate a object box
+box = {};
+
+box.addToCustomerList = function(responseText){
 	$("#add_new_person").hide(1000);
 	$("#customers").show(1000);
 	$(responseText).prependTo('#customers table.index #customers_list').effect("highlight", {}, 10000);
 	$('#new_customer')[0].reset();
 }
 
-function add_another(origin, target){
-	var content = "<tr>" + $(origin).eq(0).html() + "</tr>";
+box.add_another = function(origin, target){
+	var content = "<tr>" + $(origin).eq(0).clone(true).html() + "</tr>";
 	$(target).before(content);
+}
+
+box.focusEvent = function(target, origin_value){
+	if (target.value == origin_value) { 
+	    target.value = '';
+	    $(target).removeClass('blank'); 
+	}
+}
+
+box.blurEvent = function(target,origin_value){
+	if (target.value.match(/^ *$/)) {
+		 target.value = origin_value;
+		 $(target).addClass('blank');
+	}
+}
+// show message when offline 
+box.flashMessage = function(message){
+	$.blockUI({  
+      message: $('div.growlUI'), 
+      fadeIn: 700, 
+      fadeOut: 700, 
+      timeout: 3000, 
+      showOverlay: false, 
+      centerY: false, 
+      css: {  
+          width: '350px', 
+          top: '10px',  
+          left: '',  
+          right: '10px',  
+          border: 'none', 
+          padding: '5px', 
+          backgroundColor: '#000',
+          opacity: '.9', 
+          color: '#ffffff'
+      } 
+    });
+    $("#flash_message span").empty().addClass("notice").append(message);  
 }
 
 $(document).ready(function() {
 	// $("#new_customer").validate();
 	
 	$('#new_customer').ajaxForm({
-		success: addToCustomerList
+		success: box.addToCustomerList
 	});
 	
 	$('#add_person_phone_number td.add a').click(function(){
-	    add_another('#phone_number_list_person tbody tr','table#phone_number_list_person tbody tr#add_person_phone_number');	
+	    box.add_another('#phone_number_list_person tbody tr','table#phone_number_list_person tbody tr#add_person_phone_number');
+		return false;	
+	});
+	
+	$('#add_person_email_addresses td.add a').click(function(){
+	    box.add_another('#email_address_list_person tbody tr','table#email_address_list_person tbody tr#add_person_email_addresses');
+		return false;	
+	});
+	
+	$('#add_person_instant_messagers td.add a').click(function(){
+	    box.add_another('#instant_messager_list_person tbody tr','table#instant_messager_list_person tbody tr#add_person_instant_messagers');
+		return false;	
+	});
+	
+	// red ones
+	$('#add_person_red_ones td.add a').click(function(){
+	    box.add_another('#red_one_list_person tbody tr','table#red_one_list_person tbody tr#add_person_red_ones');
+		return false;	
+	});
+	
+	$('#red_one_list_person tr td input').bind("focus",function(){
+		box.focusEvent(this,'Quote');
+	});
+
+	$('#red_one_list_person tr td input').bind("blur",function(){
+		box.blurEvent(this,'Quote');
+	});
+	
+	$('#red_one_list_person tr input#serial_num').focus(function(){
+	    box.focusEvent(this,'Serial Number');
+	});
+
+	$('#red_one_list_person tr input#serial_num').blur(function(){
+	    box.blurEvent(this,'Serial Number');
 	});
 	
 	
-	// show message when offline 
-	function flashMessage(message){
-		$.blockUI({  
-	      message: $('div.growlUI'), 
-	      fadeIn: 700, 
-	      fadeOut: 700, 
-	      timeout: 3000, 
-	      showOverlay: false, 
-	      centerY: false, 
-	      css: {  
-	          width: '350px', 
-	          top: '10px',  
-	          left: '',  
-	          right: '10px',  
-	          border: 'none', 
-	          padding: '5px', 
-	          backgroundColor: '#000',
-	          opacity: '.9', 
-	          color: '#ffffff'
-	      } 
-	    });
-	    $("#flash_message span").empty().addClass("notice").append(message);  
-	}
-		
+	//urban areas
+	$('#add_person_urban_areas td.add a').click(function(){
+	    box.add_another('#urban_area_list_person tbody tr','table#urban_area_list_person tbody tr#add_person_urban_areas');
+		return false;
+	});
+	
+	// resellers
+	$('#add_person_resellers td.add a').click(function(){
+	    box.add_another('#reseller_list_person tbody tr','table#reseller_list_person tbody tr#add_person_resellers');
+		return false;	
+	});
+	
+	$('#reseller_list_person tr input#reseller_company').focus(function(){
+	    box.focusEvent(this,'Reseller Company');
+	});
+
+	$('#reseller_list_person tr input#reseller_company').blur(function(){
+	    blurEvent(this,'Reseller Company');
+	});
+	
+	$('#reseller_list_person tr input#reseller_name').focus(function(){
+	    box.focusEvent(this,'Reseller Name');
+	});
+
+	$('#reseller_list_person tr input#reseller_name').blur(function(){
+	    box.blurEvent(this,'Reseller Name');
+	});
+	
+	$('#reseller_list_person tr input#reseller_mobile').focus(function(){
+	    box.focusEvent(this,'Reseller Mobile');
+	});
+
+	$('#reseller_list_person tr input#reseller_mobile').blur(function(){
+	    box.blurEvent(this,'Reseller Mobile');
+	});
+	
+	// clients
+	$('#add_person_clients td.add a').click(function(){
+	    box.add_another('#client_list_person tbody tr','table#client_list_person tbody tr#add_person_clients');
+		return false;	
+	});
+	
+	$('#client_list_person tr input#client_name').focus(function(){
+	    box.focusEvent(this,'Client Name');
+	});
+
+	$('#client_list_person tr input#client_name').blur(function(){
+	    box.blurEvent(this,'Client Name');
+	});
+	
+	$('#client_list_person tr input#client_mobile').focus(function(){
+	    box.focusEvent(this,'Client Mobile');
+	});
+
+	$('#client_list_person tr input#client_mobile').blur(function(){
+	    box.blurEvent(this,'Client Mobile');
+	});
+	
+	
+	// web sites
+	$('#add_person_web_addresses td.add a').click(function(){
+	    box.add_another('#web_address_list_person tbody tr','table#web_address_list_person tbody tr#add_person_web_addresses');
+		return false;	
+	});
+	
+	$('#add_person_addresses td.add a').click(function(){
+	    box.add_another('#address_list_person tbody tr','table#address_list_person tbody tr#add_person_addresses');
+		return false;
+	});
+	
+	// address
+	$('#address_list_person tr.street textarea#street').focus(function(){
+	    box.focusEvent(this,'Street');
+	});
+
+	$('#address_list_person tr.street textarea#street').blur(function(){
+	    box.blurEvent(this,'Street');
+	});
+	
+	$('#address_list_person tr.street input#city').focus(function(){
+	    box.focusEvent(this,'City');
+	});
+
+	$('#address_list_person tr.street input#city').blur(function(){
+	    box.blurEvent(this,'City');
+	});
+	
+	$('#address_list_person tr.street input#state').focus(function(){
+	    box.focusEvent(this,'State');
+	});
+
+	$('#address_list_person tr.street input#state').blur(function(){
+	    box.blurEvent(this,'State');
+	});
+	
+	$('#address_list_person tr.street input#zip').focus(function(){
+	    box.focusEvent(this,'Zip');
+	});
+
+	$('#address_list_person tr.street input#zip').blur(function(){
+	    box.blurEvent(this,'Zip');
+	});
+	
+	$('#address_list_person tr.street input#country').focus(function(){
+	    box.focusEvent(this,'Country');
+	});
+
+	$('#address_list_person tr.street input#country').blur(function(){
+	    box.blurEvent(this,'Country');
+	});
+	
+	// =============	
 	$("#button_to_add_new").click(function() {
-		$("#add_new_person").show(1000);
-		$("#customers").hide(1000);
+		$("#add_new_person").show(800);
+		$("#customers").hide(800);
 		return false;
 	});
 	
 	$("#add_new_person p.submit a").click(function(){
-		$("#add_new_person").hide(1000);
-		$("#customers").show(1000);
+		$("#add_new_person").hide(800);
+		$("#customers").show(800);
 		return false;
 	});
 	
 	$("#add_new_person #link_to_show_contact_section p a.add_contack_info").click(function(){
-	  $('#contact_section').show(1000);
-	  $('#link_to_show_contact_section').hide(1000);
+	  $('#contact_section').show(800);
+	  $('#link_to_show_contact_section').hide(800);
 	  return false;	
 	});
 	
@@ -98,7 +259,7 @@ $(document).ready(function() {
 		//         }
 		if( $("#offline-status img#is-connected").offline.init() ){
 		    $("#offline-status img#is-connected").offline.offlineCreateStore();
-		    flashMessage('you can use in offline model!');
+		    box.flashMessage('you can use in offline model!');
         }
         
 		// 

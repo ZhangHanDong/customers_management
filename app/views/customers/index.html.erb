@@ -12,12 +12,12 @@
            <tr>
                <td>
                    <p>
-                     <%= f.label :first_name, 'First Name',:for => "customer_first_name" %><br/>
+                     <%= f.label :first_name, 'First Name ( Required )',:for => "customer_first_name" %><br/>
                      <%= f.text_field :first_name, :size => "30" %>
                    </p>
                </td>
                <td>
-                   <p><%= f.label :last_name, 'Last Name', :for => "customer_last_name" %><br/>
+                   <p><%= f.label :last_name, 'Last Name ( Required )', :for => "customer_last_name" %><br/>
                    <%= f.text_field :last_name, :size => "30" %>
                    </p>
                </td>
@@ -65,15 +65,29 @@
 </div>
 
 <div id="customers">
-  <h1>Customers Lists</h1>
-  
-  <% form_for(:customer, :html => { :method => :delete }) do |f| %>
-  <table class="index">
-     <tbody id = "customers_list">
-       <%= render :partial => @customers %>
-     </tbody>
-  </table>
-  <% end %>
+  <div class="col">
+     <div class = "page_header">
+        <h1>Customers Lists</h1>
+     </div>
+     
+     <div class = "innercol">
+       
+       <div id = "parties">
+         
+         <div class = "parties" >
+           <% form_for(:customer, :html => { :method => :delete }) do |f| %>
+           <table class="index">
+             <tbody id = "customers_list">
+               <%= render :partial => @customers %>
+             </tbody>
+           </table>
+           <% end %>
+         </div>  <!-- 1 end -->
+       </div>    <!-- 2 end -->
+       
+     </div>      <!-- 3 end -->
+     
+  </div>
 </div>
 
 <% content_for(:right) do-%>

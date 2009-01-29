@@ -1,4 +1,8 @@
 <tr id = <%= "row_company_#{customer.id}" %> >
    <td><%= h customer.first_name %></td>
-   <td class="contact_info"><%= h customer.last_name %></td> 
+   <td class="contact_info"><%= h customer.last_name %></td>
+   <td><%= h customer.company %></td>
+   <td><%= h customer.title %></td>
+   <td><%= h customer.account_num %></td>
+   <td><%= h customer.email_addresses.first.email unless customer.email_addresses.blank? %></td>
 </tr>
