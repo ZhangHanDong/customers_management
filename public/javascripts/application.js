@@ -14,7 +14,7 @@ jQuery.ajaxSetup({
 	'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")},
 });
 
-// generate a object box
+// generate an object box
 box = {};
 
 box.addToCustomerList = function(responseText){
