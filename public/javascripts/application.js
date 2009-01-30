@@ -94,22 +94,25 @@ $(document).ready(function() {
 		return false;	
 	});
 	
-	$('#red_one_list_person tr td input').bind("focus",function(){
-		box.focusEvent(this,'Quote');
+	$('#red_one_list_person tr td').livequery(function(){
+		$(this).find("input#quotes").focus(function(){
+		    box.focusEvent(this,'Quote');	
+		}),
+		
+		$(this).find("input#serial_num").focus(function(){
+		    box.focusEvent(this,'Serial Number');
+		})
 	});
 
-	$('#red_one_list_person tr td input').bind("blur",function(){
-		box.blurEvent(this,'Quote');
-	});
-	
-	$('#red_one_list_person tr input#serial_num').focus(function(){
-	    box.focusEvent(this,'Serial Number');
-	});
-
-	$('#red_one_list_person tr input#serial_num').blur(function(){
-	    box.blurEvent(this,'Serial Number');
-	});
-	
+	$('#red_one_list_person tr td').livequery(function(){
+		$(this).find("input#quotes").blur(function(){
+			box.blurEvent(this,'Quote');
+		}),
+		
+		$(this).find("input#serial_num").blur(function(){
+		    box.blurEvent(this,'Serial Number');
+		})
+	});	
 	
 	//urban areas
 	$('#add_person_urban_areas td.add a').click(function(){
@@ -123,52 +126,60 @@ $(document).ready(function() {
 		return false;	
 	});
 	
-	$('#reseller_list_person tr input#reseller_company').focus(function(){
-	    box.focusEvent(this,'Reseller Company');
-	});
-
-	$('#reseller_list_person tr input#reseller_company').blur(function(){
-	    blurEvent(this,'Reseller Company');
+	$('#reseller_list_person tr td').livequery(function(){
+		$(this).find("input#reseller_company").focus(function(){
+	    	box.focusEvent(this,'Reseller Company');
+	    }),
+	
+	    $(this).find("input#reseller_name").focus(function(){
+	    	box.focusEvent(this,'Reseller Name');
+	    }),
+	
+		$(this).find("input#reseller_mobile").focus(function(){
+	    	box.focusEvent(this,'Reseller Mobile');
+	    })
 	});
 	
-	$('#reseller_list_person tr input#reseller_name').focus(function(){
-	    box.focusEvent(this,'Reseller Name');
-	});
-
-	$('#reseller_list_person tr input#reseller_name').blur(function(){
-	    box.blurEvent(this,'Reseller Name');
-	});
+	$('#reseller_list_person tr td').livequery(function(){
+		$(this).find("input#reseller_company").blur(function(){
+	    	box.blurEvent(this,'Reseller Company');
+	    }),
 	
-	$('#reseller_list_person tr input#reseller_mobile').focus(function(){
-	    box.focusEvent(this,'Reseller Mobile');
-	});
-
-	$('#reseller_list_person tr input#reseller_mobile').blur(function(){
-	    box.blurEvent(this,'Reseller Mobile');
-	});
+	    $(this).find("input#reseller_name").blur(function(){
+	    	box.blurEvent(this,'Reseller Name');
+	    }),
 	
+		$(this).find("input#reseller_mobile").blur(function(){
+	    	box.blurEvent(this,'Reseller Mobile');
+	    })
+	});	
+
+
 	// clients
 	$('#add_person_clients td.add a').click(function(){
 	    box.add_another('#client_list_person tbody tr','table#client_list_person tbody tr#add_person_clients');
 		return false;	
 	});
 	
-	$('#client_list_person tr input#client_name').focus(function(){
-	    box.focusEvent(this,'Client Name');
-	});
-
-	$('#client_list_person tr input#client_name').blur(function(){
-	    box.blurEvent(this,'Client Name');
+	$('#client_list_person tr td').livequery(function(){
+		$(this).find("input#client_name").focus(function(){
+	    	box.focusEvent(this,'Client Name');
+	    }),
+	
+	    $(this).find("input#client_mobile").focus(function(){
+	    	box.focusEvent(this,'Client Mobile');
+	    })
 	});
 	
-	$('#client_list_person tr input#client_mobile').focus(function(){
-	    box.focusEvent(this,'Client Mobile');
-	});
-
-	$('#client_list_person tr input#client_mobile').blur(function(){
-	    box.blurEvent(this,'Client Mobile');
-	});
+	$('#client_list_person tr td').livequery(function(){
+		$(this).find("input#client_name").blur(function(){
+	    	box.blurEvent(this,'Client Name');
+	    }),
 	
+	    $(this).find("input#client_mobile").blur(function(){
+	    	box.blurEvent(this,'Client Mobile');
+	    })
+	});
 	
 	// web sites
 	$('#add_person_web_addresses td.add a').click(function(){
@@ -182,44 +193,49 @@ $(document).ready(function() {
 	});
 	
 	// address
-	$('#address_list_person tr.street textarea#street').focus(function(){
-	    box.focusEvent(this,'Street');
-	});
-
-	$('#address_list_person tr.street textarea#street').blur(function(){
-	    box.blurEvent(this,'Street');
+	
+	$('#address_list_person tr td').livequery(function(){
+		$(this).find("textarea#street").focus(function(){
+	    	box.focusEvent(this,'Street');
+	    }),
+	
+	    $(this).find("input#city").focus(function(){
+	    	box.focusEvent(this,'City');
+	    }),
+	
+	    $(this).find("input#state").focus(function(){
+	    	box.focusEvent(this,'State');
+	    }),
+	
+	    $(this).find("input#zip").focus(function(){
+	    	box.focusEvent(this,'Zip');
+	    }),
+	
+	    $(this).find("input#country").focus(function(){
+	    	box.focusEvent(this,'Country');
+	    })
 	});
 	
-	$('#address_list_person tr.street input#city').focus(function(){
-	    box.focusEvent(this,'City');
-	});
-
-	$('#address_list_person tr.street input#city').blur(function(){
-	    box.blurEvent(this,'City');
-	});
+	$('#address_list_person tr td').livequery(function(){
+		$(this).find("textarea#street").blur(function(){
+	    	box.blurEvent(this,'Street');
+	    }),
 	
-	$('#address_list_person tr.street input#state').focus(function(){
-	    box.focusEvent(this,'State');
-	});
-
-	$('#address_list_person tr.street input#state').blur(function(){
-	    box.blurEvent(this,'State');
-	});
+	    $(this).find("input#city").blur(function(){
+	    	box.blurEvent(this,'City');
+	    }),
 	
-	$('#address_list_person tr.street input#zip').focus(function(){
-	    box.focusEvent(this,'Zip');
-	});
-
-	$('#address_list_person tr.street input#zip').blur(function(){
-	    box.blurEvent(this,'Zip');
-	});
+	    $(this).find("input#state").blur(function(){
+	    	box.blurEvent(this,'State');
+	    }),
 	
-	$('#address_list_person tr.street input#country').focus(function(){
-	    box.focusEvent(this,'Country');
-	});
-
-	$('#address_list_person tr.street input#country').blur(function(){
-	    box.blurEvent(this,'Country');
+	    $(this).find("input#zip").blur(function(){
+	    	box.blurEvent(this,'Zip');
+	    }),
+	
+	    $(this).find("input#country").blur(function(){
+	    	box.blurEvent(this,'Country');
+	    })
 	});
 	
 	// =============	
