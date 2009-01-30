@@ -3,8 +3,6 @@
   "version": "1.0",
   "entries": [
       { "url": "."                                     },
-      { "url": "/javascripts/gears_offline.js"         },
-      { "url": "/javascripts/gears_init.js"            },
       { "url": "/javascripts/application.js"           },
       { "url": "/javascripts/jquery.js"                },
       { "url": "/javascripts/jquery.blockUI.js"        },
@@ -12,6 +10,7 @@
       { "url": "/javascripts/jquery.offline.js"        },
       { "url": "/javascripts/jquery-form.js"           },
       { "url": "/javascripts/jquery-ui.js"             },
+      { "url": "/javascripts/jquery.livequery.js"      },
       { "url": "/stylesheets/application.css"          },
       { "url": "/images/remove.gif"                    },
       { "url": "/images/add_a_new_person.gif"          },
