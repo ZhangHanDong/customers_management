@@ -161,7 +161,7 @@ $j.c({Customers: {
     displayForm: function(){
 	    $("#button_to_add_new").click(function() {
 		    
-	        $j.v.Customers.displayForm();
+	        $j.current.v.displayForm();
 			return false;
 		});
     },
