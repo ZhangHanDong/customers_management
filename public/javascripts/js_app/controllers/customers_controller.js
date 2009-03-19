@@ -51,29 +51,29 @@ $j.c({Customers: {
 
 		$('#reseller_list_person tr td').livequery(function(){
 			$(this).find("input#reseller_company").focus(function(){
-		    	box.focusEvent(this,'Reseller Company');
+		    	$j.current.focusEvent(this,'Reseller Company');
 		    }),
 
 		    $(this).find("input#reseller_name").focus(function(){
-		    	box.focusEvent(this,'Reseller Name');
+		    	$j.current.v.focusEvent(this,'Reseller Name');
 		    }),
 
 			$(this).find("input#reseller_mobile").focus(function(){
-		    	box.focusEvent(this,'Reseller Mobile');
+		    	$j.current.v.focusEvent(this,'Reseller Mobile');
 		    })
 		});
 
 		$('#reseller_list_person tr td').livequery(function(){
 			$(this).find("input#reseller_company").blur(function(){
-		    	box.blurEvent(this,'Reseller Company');
+		    	$j.current.v.blurEvent(this,'Reseller Company');
 		    }),
 
 		    $(this).find("input#reseller_name").blur(function(){
-		    	box.blurEvent(this,'Reseller Name');
+		    	$j.current.v.blurEvent(this,'Reseller Name');
 		    }),
 
 			$(this).find("input#reseller_mobile").blur(function(){
-		    	box.blurEvent(this,'Reseller Mobile');
+		    	$j.current.v.blurEvent(this,'Reseller Mobile');
 		    })
 		});	
 
@@ -83,21 +83,21 @@ $j.c({Customers: {
 
 		$('#client_list_person tr td').livequery(function(){
 			$(this).find("input#client_name").focus(function(){
-		    	box.focusEvent(this,'Client Name');
+		    	$j.current.v.focusEvent(this,'Client Name');
 		    }),
 
 		    $(this).find("input#client_mobile").focus(function(){
-		    	box.focusEvent(this,'Client Mobile');
+		    	$j.current.v.focusEvent(this,'Client Mobile');
 		    })
 		});
 
 		$('#client_list_person tr td').livequery(function(){
 			$(this).find("input#client_name").blur(function(){
-		    	box.blurEvent(this,'Client Name');
+		    	$j.current.v.blurEvent(this,'Client Name');
 		    }),
 
 		    $(this).find("input#client_mobile").blur(function(){
-		    	box.blurEvent(this,'Client Mobile');
+		    	$j.current.v.blurEvent(this,'Client Mobile');
 		    })
 		});
 
@@ -109,45 +109,45 @@ $j.c({Customers: {
 		
 		$('#address_list_person tr td').livequery(function(){
 			$(this).find("textarea#street").focus(function(){
-		    	box.focusEvent(this,'Street');
+		    	$j.current.v.focusEvent(this,'Street');
 		    }),
 
 		    $(this).find("input#city").focus(function(){
-		    	box.focusEvent(this,'City');
+		    	$j.current.v.focusEvent(this,'City');
 		    }),
 
 		    $(this).find("input#state").focus(function(){
-		    	box.focusEvent(this,'State');
+		    	$j.current.v.focusEvent(this,'State');
 		    }),
 
 		    $(this).find("input#zip").focus(function(){
-		    	box.focusEvent(this,'Zip');
+		    	$j.current.v.focusEvent(this,'Zip');
 		    }),
 
 		    $(this).find("input#country").focus(function(){
-		    	box.focusEvent(this,'Country');
+		    	$j.current.v.focusEvent(this,'Country');
 		    })
 		});
 
 		$('#address_list_person tr td').livequery(function(){
 			$(this).find("textarea#street").blur(function(){
-		    	box.blurEvent(this,'Street');
+		    	$j.current.v.blurEvent(this,'Street');
 		    }),
 
 		    $(this).find("input#city").blur(function(){
-		    	box.blurEvent(this,'City');
+		    	$j.current.v.blurEvent(this,'City');
 		    }),
 
 		    $(this).find("input#state").blur(function(){
-		    	box.blurEvent(this,'State');
+		    	$j.current.v.blurEvent(this,'State');
 		    }),
 
 		    $(this).find("input#zip").blur(function(){
-		    	box.blurEvent(this,'Zip');
+		    	$j.current.v.blurEvent(this,'Zip');
 		    }),
 
 		    $(this).find("input#country").blur(function(){
-		    	box.blurEvent(this,'Country');
+		    	$j.current.v.blurEvent(this,'Country');
 		    })
 		});
 		
@@ -160,7 +160,6 @@ $j.c({Customers: {
     */
     displayForm: function(){
 	    $("#button_to_add_new").click(function() {
-		    
 	        $j.current.v.displayForm();
 			return false;
 		});
