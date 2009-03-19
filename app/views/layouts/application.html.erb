@@ -11,12 +11,29 @@
       <title><%= AppConfig.app_name %></title>
     <%- end -%>
     <%= stylesheet_link_tag 'application' %>
-    <%= javascript_include_tag  %w[ jquery jquery.blockUI jquery-form jquery.validate jquery.livequery jquery-ui jquery.init jquery.offline application ] %>
+    <%= javascript_include_tag  %w[ js_app/lib/jquery js_app/lib/jamal ] %>
+    
+    <%= javascript_include_tag  %w[ js_app/app_controller ] %>
+    <%= javascript_include_tag  %w[ js_app/controllers/customers_controller ] %>
+    
+    <%= javascript_include_tag  %w[ js_app/app_model ] %>
+    <%= javascript_include_tag  %w[ js_app/models/contact_data js_app/models/customer js_app/models/sync_engin ] %>
+    
+    <%= javascript_include_tag  %w[ js_app/app_view ] %>
+    <%= javascript_include_tag  %w[ js_app/views/customers ] %>
+    
+    <%= javascript_include_tag  %w[ js_app/plugins/jquery.form 
+                                    js_app/plugins/jquery.livequery
+                                    js_app/plugins/jquery.uuid 
+                                    js_app/plugins/jquery.json ] %>
+    
+    <%= javascript_include_tag 'application' %>
+    
     <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? %>
     <%= yield(:head) %>
-
+    
   </head>
-  <body>
+  <body class="jamal {controller:'Customers',action:'index',debug:true}">
     <div id="header">
       <div id="upper_menu">
         <% if logged_in? %>
@@ -29,6 +46,9 @@
             </span>
           |
           <%= link_to "Log-out", logout_path, { :title => "Log out" }    %>
+          |
+          <a href="/tools/index.html">Tool to query the local database </a>
+          
         <% else %>
           <%= link_to "Log-in",  login_path,  { :title => "Log in" } %>
           |

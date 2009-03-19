@@ -5,6 +5,10 @@ class CustomersController < ApplicationController
     @customer = Customer.new
     @customers = Customer.find(:all, :order => "id DESC")
     @customer.contact_datas.build
+    respond_to do |format|
+      format.html
+      format.js{ render :json => @customers.to_json(:except => [ :created_at, :updated_at ]) }
+    end
   end
   
   def create
