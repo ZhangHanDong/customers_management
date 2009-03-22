@@ -38,6 +38,11 @@ $j.v({ Customers: {
 	addAnother: function(origin, target){
 		var content = "<tr>" + $(origin).eq(0).clone(true).html() + "</tr>";
 		$(target).before(content);
+	},
+	
+	createDynamicTable: function(dynamic_data){
+		$('#dynamic').html( '<table cellpadding="0" cellspacing="0" border="0" class="display" id="example"></table>' );
+		$('#example').dataTable(dynamic_data);
 	}
 }
 });

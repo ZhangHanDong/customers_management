@@ -12,6 +12,7 @@ $j.c({Customers: {
 	    this.displayForm();
 	    this.cancelForm();
 	    this.addContactInfo();
+	    this.createDynamicTable($j.m.Customer.dynamicData());
 	
         // contact info add event and blur && focus event
 		this.addAnother('#add_person_phone_number td.add a', '#phone_number_list_person tbody tr','table#phone_number_list_person tbody tr#add_person_phone_number');
@@ -185,6 +186,11 @@ $j.c({Customers: {
 			return false;	
 		});
 	},
+	
+	createDynamicTable: function(dynamic_data){
+		$j.current.v.createDynamicTable(dynamic_data);
+	}
+	
 	
 }
 });
