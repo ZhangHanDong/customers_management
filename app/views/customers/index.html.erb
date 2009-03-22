@@ -70,23 +70,8 @@
         <h1>Customers Lists</h1>
      </div>
      
-     <div class = "innercol">
-       
-       <div id = "parties">
-         
-         <div class = "parties" >
-           <% form_for(:customer, :html => { :method => :delete }) do |f| %>
-           <table class="index">
-             <tbody id = "customers_list">
-               <%= render :partial => @customers %>
-             </tbody>
-           </table>
-           <% end %>
-         </div>  <!-- 1 end -->
-       </div>    <!-- 2 end -->
-       
-     </div>      <!-- 3 end -->
-     
+     <div id="dynamic"></div>
+
   </div>
 </div>
 
