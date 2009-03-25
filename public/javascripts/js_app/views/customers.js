@@ -50,8 +50,8 @@ $j.v({ Customers: {
 			"self[*]":"['{$.customer.first_name}','{$.customer.last_name}','{$.customer.created_at}','<a href=javascript:editApp({$.customer.first_name})>Edit</a> <a href=javascript:delApp({$.customer.first_name})>Delete</a>'],"
 		};
 		var _APP_TABLE_HEADER=[{"sTitle":"FirstName"},{"sTitle":"LastName"},{"sTitle":"Created Date"},{"sTitle":"Actions"}];
-	    bb = eval(dynamic_data);
-		aa = eval(jsonT(bb,_APP_TABLE_T).replace(",]","]"));
+	    
+		aa = eval(jsonT(eval(dynamic_data),_APP_TABLE_T).replace(",]","]"));
 		
 		$('#dynamic').html( '<table cellpadding="0" cellspacing="0" border="0" class="display" id="customers_table"></table>' );
 	    
