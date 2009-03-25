@@ -7,7 +7,8 @@ class CustomersController < ApplicationController
     @customer.contact_datas.build
     respond_to do |format|
       format.html
-      format.js{ render :json => @customers.to_json }
+      format.js{ render :json => @customers.to_json(:include => :contact_datas)
+       }
     end
   end
   

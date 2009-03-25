@@ -26,10 +26,8 @@ $j.c({Customers: {
 					try{
 
 						response = request.responseText;
+						console.log(response);
 						$j.current.createDynamicTable(response);
-						// console.log(response);
-						// var rt = this.jsonParse(response);
-						// wp.sendMessage(["a","b",{text:rt.msg, action:"popup"}], x.message.sender);
 					}catch(e){
 						console.log(e);
 					}
