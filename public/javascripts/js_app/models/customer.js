@@ -5,6 +5,7 @@
  * 2009.3
  */
 $j.m({ Customer: {
+
 	
 	relation: function(){
 		Customer.hasMany(ContactData, {

@@ -11,7 +11,7 @@
       <title><%= AppConfig.app_name %></title>
     <%- end -%>
     <%= stylesheet_link_tag 'application' %>
-    <%= javascript_include_tag  %w[ js_app/lib/jquery js_app/lib/jamal ] %>
+    <%= javascript_include_tag  %w[ js_app/lib/jquery js_app/lib/jamal js_app/lib/jsont ] %>
     
     <%= javascript_include_tag  %w[ js_app/app_model ] %>
     <%= javascript_include_tag  %w[ js_app/models/contact_data js_app/models/customer js_app/models/sync_engin ] %>
@@ -26,7 +26,9 @@
                                     js_app/plugins/jquery.livequery
                                     js_app/plugins/jquery.uuid 
                                     js_app/plugins/jquery.json
-                                    js_app/plugins/jquery.datatables ] %>
+                                    js_app/plugins/jquery.datatables
+                                    jquery.init
+                                    jquery.offline ] %>
     
     <%= javascript_include_tag 'application' %>
     

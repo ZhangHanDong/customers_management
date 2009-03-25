@@ -12,7 +12,34 @@ $j.c({Customers: {
 	    this.displayForm();
 	    this.cancelForm();
 	    this.addContactInfo();
-	    this.createDynamicTable($j.m.Customer.dynamicData());
+	    
+	
+		$("#offline-status img#is-connected").gearsInit();
+		$("#offline-status img#is-connected").gearsCheck();
+
+		if( $("#offline-status img#is-connected").offline.init() ){
+		    $("#offline-status img#is-connected").offline.offlineCreateStore();
+		    request = google.gears.factory.create('beta.httprequest');
+			request.open('GET','/customers.js');
+			request.onreadystatechange = function() {
+				if (request.readyState == 4) {
+					try{
+
+						response = request.responseText;
+						$j.current.createDynamicTable(response);
+						// console.log(response);
+						// var rt = this.jsonParse(response);
+						// wp.sendMessage(["a","b",{text:rt.msg, action:"popup"}], x.message.sender);
+					}catch(e){
+						console.log(e);
+					}
+
+				}
+			};
+			request.send();
+			
+		    // $("#offline-status img#is-connected").offline.offlineCreateDatabase();
+        }
 	
         // contact info add event and blur && focus event
 		this.addAnother('#add_person_phone_number td.add a', '#phone_number_list_person tbody tr','table#phone_number_list_person tbody tr#add_person_phone_number');

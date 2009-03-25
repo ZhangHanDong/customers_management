@@ -7,7 +7,7 @@ class CustomersController < ApplicationController
     @customer.contact_datas.build
     respond_to do |format|
       format.html
-      format.js{ render :json => @customers.to_json(:except => [ :created_at, :updated_at ]) }
+      format.js{ render :json => @customers.to_json( :only => [ :first_name, :last_name, :created_at ] ) }
     end
   end
   

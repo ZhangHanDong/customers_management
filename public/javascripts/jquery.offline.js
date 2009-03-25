@@ -10,7 +10,7 @@
 jQuery.fn.offline = {
 	
 	STORE_NAME: "customer_management_offline_docset",
-	MANIFEST_FILENAME: "../cmmanifest.json",	
+	MANIFEST_FILENAME: "../offline_resources/cmmanifest.json",	
 	DATABASE_NAME: "red-CustomersManagement",
 	
 	check: function(){

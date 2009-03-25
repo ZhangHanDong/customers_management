@@ -41,8 +41,32 @@ $j.v({ Customers: {
 	},
 	
 	createDynamicTable: function(dynamic_data){
-		$('#dynamic').html( '<table cellpadding="0" cellspacing="0" border="0" class="display" id="example"></table>' );
-		$('#example').dataTable(dynamic_data);
+	
+		////////////////////////////////////////////////////////
+		// Variables for jsonT to transform apps json objects //
+		////////////////////////////////////////////////////////
+		var _APP_TABLE_T={
+			"self":"[{$}]",
+			"self[*]":"['{$.customer.first_name}','{$.customer.last_name}','{$.customer.created_at}','<a href=javascript:editApp({$.customer.first_name})>Edit</a> <a href=javascript:delApp({$.customer.first_name})>Delete</a>'],"
+		};
+		var _APP_TABLE_HEADER=[{"sTitle":"FirstName"},{"sTitle":"LastName"},{"sTitle":"Created Date"},{"sTitle":"Actions"}];
+	    bb = eval(dynamic_data);
+		aa = eval(jsonT(bb,_APP_TABLE_T).replace(",]","]"));
+		
+		$('#dynamic').html( '<table cellpadding="0" cellspacing="0" border="0" class="display" id="customers_table"></table>' );
+	    
+		oTable = $('#customers_table').dataTable({
+			"aaData": aa,
+			"aoColumns": _APP_TABLE_HEADER
+		});
+
+		$('#customers_table tbody tr').live('click', function(){
+			oTable.fnOpen( this, "详细信息", "info_row" );
+			/* Then when the info row is clicked upon - close it */
+			$('#customers_table .info_row').click( function () {
+				oTable.fnClose();
+			} );
+		});
 	}
 }
 });
