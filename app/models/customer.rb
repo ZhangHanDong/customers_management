@@ -1,4 +1,6 @@
 class Customer < ActiveRecord::Base
+  set_primary_key "uuid"
+  
   has_many :contact_datas, :class_name => "ContactData", :foreign_key => "customer_id"
   has_many :websites, :class_name => "WebSite", :foreign_key => "customer_id"
   has_many :redones, :class_name => "RedOne", :foreign_key => "customer_id"

@@ -28,7 +28,7 @@ jQuery.fn.offline = {
 
 				localServer = google.gears.factory.create("beta.localserver","1.0");
 				store = localServer.createManagedStore(this.STORE_NAME);
-  
+                
 				//create DataBase
 				db = google.gears.factory.create('beta.database', '1.0');
 				var workerPool = google.gears.factory.create('beta.workerpool');
@@ -56,7 +56,7 @@ jQuery.fn.offline = {
 							try{
 								
 								response = request.responseText;
-								console.log(response);
+								// console.log(response);
 								// var rt = this.jsonParse(response);
 								// wp.sendMessage(["a","b",{text:rt.msg, action:"popup"}], x.message.sender);
 							}catch(e){
@@ -88,7 +88,6 @@ jQuery.fn.offline = {
 		this.store = localServer.createManagedStore(this.STORE_NAME);
 		this.store.manifestUrl = this.MANIFEST_FILENAME;
 		this.store.checkForUpdate();
-
 		// if download error occur,this function will display a note.
 		var timerId = window.setInterval(function() {
 			// When the currentVersion property has a value, all of the resources

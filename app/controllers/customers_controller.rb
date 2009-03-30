@@ -36,4 +36,8 @@ class CustomersController < ApplicationController
       end
     end
   end
+  
+  def formauthenticitytoken
+    render :text=>form_authenticity_token
+  end
 end

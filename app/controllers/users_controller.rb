@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  layout 'login'
   before_filter :login_required, :except => [:new, :create, :activate]
   
   # render new.rhtml

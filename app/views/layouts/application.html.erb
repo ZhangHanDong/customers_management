@@ -14,7 +14,9 @@
     <%= javascript_include_tag  %w[ js_app/lib/jquery js_app/lib/jamal js_app/lib/jsont ] %>
     
     <%= javascript_include_tag  %w[ js_app/app_model ] %>
-    <%= javascript_include_tag  %w[ js_app/models/contact_data js_app/models/customer js_app/models/sync_engin ] %>
+    <%= javascript_include_tag  %w[ js_app/models/contact_data
+                                    js_app/models/customer
+                                    js_app/models/sync_engine ] %>
     
     <%= javascript_include_tag  %w[ js_app/app_view ] %>
     <%= javascript_include_tag  %w[ js_app/views/customers ] %>
@@ -33,7 +35,7 @@
     <%= javascript_include_tag 'application' %>
     
     <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? %>
-    <%= yield(:head) %>
+    <%= yield(:head) %>    
     
   </head>
   <body class="jamal {controller:'Customers',action:'index',debug:true}">

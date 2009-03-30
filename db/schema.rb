@@ -12,8 +12,8 @@
 ActiveRecord::Schema.define(:version => 20090118231136) do
 
   create_table "contact_datas", :force => true do |t|
-    t.integer  "customer_id"
-    t.string   "type"
+    t.integer  "customer_id",                                        :null => false
+    t.string   "type",                                               :null => false
     t.string   "location"
     t.string   "website"
     t.decimal  "quotes",              :precision => 10, :scale => 2
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(:version => 20090118231136) do
     t.datetime "updated_at"
   end
 
+  add_index "contact_datas", ["id"], :name => "index_contact_datas_on_id", :unique => true
+
   create_table "customers", :force => true do |t|
     t.string   "first_name"
     t.string   "first_name_py"
@@ -57,6 +59,8 @@ ActiveRecord::Schema.define(:version => 20090118231136) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "customers", ["id"], :name => "index_customers_on_id", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "login",                     :limit => 40

@@ -18,6 +18,8 @@ $j.c({Customers: {
 		$("#offline-status img#is-connected").gearsCheck();
 
 		if( $("#offline-status img#is-connected").offline.init() ){
+			
+			$j.m.SyncEngine.mySync();
 		    $("#offline-status img#is-connected").offline.offlineCreateStore();
 		    request = google.gears.factory.create('beta.httprequest');
 			request.open('GET','/customers.js');

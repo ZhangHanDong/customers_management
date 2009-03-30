@@ -1,6 +1,7 @@
 class CreateCustomers < ActiveRecord::Migration
   def self.up
-    create_table :customers do |t|
+    create_table (:customers, :id => false, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8') do |t|
+      t.string   :id, :limit => 36,  :null=>false
       t.string   :first_name
       t.string   :first_name_py
       t.string   :last_name
@@ -15,6 +16,8 @@ class CreateCustomers < ActiveRecord::Migration
       t.datetime :created_at
       t.datetime :updated_at
     end
+    
+    add_index :customers, :id, :primary=>true, :unique=>true
   end
 
   def self.down

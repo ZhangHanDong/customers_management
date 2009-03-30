@@ -1,8 +1,9 @@
 class CreateContactDatas < ActiveRecord::Migration
   def self.up
-    create_table :contact_datas do |t|
-      t.integer  :customer_id
-      t.string   :type
+    create_table (:contact_datas, :id => false, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8') do |t|
+      t.string   :id, :limit => 36, :null=>false
+      t.integer  :customer_id, :null=>false
+      t.string   :type, :null=>false
       t.string   :location
       
       t.string   :website
@@ -41,6 +42,8 @@ class CreateContactDatas < ActiveRecord::Migration
       t.datetime :created_at
       t.datetime :updated_at
     end
+    
+    add_index :contact_datas, :id, :primary=>true, :unique=>true
   end
 
   def self.down

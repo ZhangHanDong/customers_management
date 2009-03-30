@@ -1,4 +1,6 @@
 class ContactData < ActiveRecord::Base
+  set_primary_key "uuid"
+  
   belongs_to :cutomer, :class_name => "Cutomer", :foreign_key => "cutomer_id"
 end
 

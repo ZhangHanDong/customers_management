@@ -5,8 +5,6 @@
  * 2009.3
  */
 $j.m({ ContactData: {
-	relation: function(){
-		ContactData.belongsTo(Customer);
-	}
+
 }
 });

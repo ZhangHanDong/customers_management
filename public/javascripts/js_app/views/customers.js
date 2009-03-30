@@ -41,7 +41,6 @@ $j.v({ Customers: {
 	},
 	
 	createDynamicTable: function(dynamic_data){
-	
 		////////////////////////////////////////////////////////
 		// Variables for jsonT to transform apps json objects //
 		////////////////////////////////////////////////////////
@@ -56,6 +55,7 @@ $j.v({ Customers: {
 		$('#dynamic').html( '<table cellpadding="0" cellspacing="0" border="0" class="display" id="customers_table"></table>' );
 	    
 		oTable = $('#customers_table').dataTable({
+			"bProcessing": true,
 			"aaData": aa,
 			"aoColumns": _APP_TABLE_HEADER
 		});

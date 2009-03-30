@@ -3,16 +3,16 @@
 
 
 // rails auth token enabled in jquery
-$(document).ajaxSend(function(event, request, settings) {
-	if (typeof(AUTH_TOKEN) == "undefined") return;
-	settings.data = settings.data || "";
-	settings.data += (settings.data ? "&" : "") + "authenticity_token=" + encodeURIComponent(AUTH_TOKEN);
-});
-
-// add javascript request type
-jQuery.ajaxSetup({
-	'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")},
-});
+// $(document).ajaxSend(function(event, request, settings) {
+// 	if (typeof(AUTH_TOKEN) == "undefined") return;
+// 	settings.data = settings.data || "";
+// 	settings.data += (settings.data ? "&" : "") + "authenticity_token=" + encodeURIComponent(AUTH_TOKEN);
+// });
+// 
+// // add javascript request type
+// jQuery.ajaxSetup({
+// 	'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")},
+// });
 
 // generate an object box
 box = {};
