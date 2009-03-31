@@ -5,7 +5,7 @@
  * 2009.3
  */
 $j.m({ SyncEngine: {
-	mySync: function(){
+	isOnlie: function(){
 		workerPool = google.gears.factory.create('beta.workerpool');
 				
 		workerPool.onmessage = function(a, b, message) {
@@ -20,13 +20,31 @@ $j.m({ SyncEngine: {
 			}
 		};
         
-        var monitorchildWorkerId = workerPool.createWorkerFromUrl('/javascripts/js_app/models/isonline.js');
-        this.monitorChildWorkerPool(monitorchildWorkerId);
+        var monitorchildWorkerId = workerPool.createWorkerFromUrl('/javascripts/js_app/models/monitor.js');
+        workerPool.sendMessage(window.location + '?monitor', monitorchildWorkerId);
+        
 	},
 	
-	// monitor user is online or offline
-	monitorChildWorkerPool: function(monitorchildWorkerId){
-		workerPool.sendMessage(window.location + '?monitor', monitorchildWorkerId);
+	
+	helloWorld: function(){
+
+		workerPool = google.gears.factory.create('beta.workerpool');
+
+		workerPool.onmessage = function(a, b, message) {			
+			if(message.sender == hellowordWorkerId){
+				
+				var state = message.text;
+				if(state == 'online'){
+					console.log(message.text);
+				}else if(state == 'offline'){
+					alert("current offline , can't Sync Date");
+				}
+			}
+		};
+
+		var hellowordWorkerId = workerPool.createWorkerFromUrl('/javascripts/js_app/models/worker.js');
+		workerPool.sendMessage(['a', 1, {helloWorld: "Hello world!"}], hellowordWorkerId);
+
 	}
 }
 });

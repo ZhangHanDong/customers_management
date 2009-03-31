@@ -50,6 +50,8 @@
             <span id="has-gears" class="hidden"><a onclick="try { this.blur(); Offline.Dialog.showGears(); return false; } catch(e) {} " href="#">Offline</a></span>
             </span>
           |
+          <%= link_to "SyncData",'#',{:id => "SyncData"}%>
+          |
           <%= link_to "Log-out", logout_path, { :title => "Log out" }    %>
           |
           <a href="/tools/index.html">Tool to query the local database </a>

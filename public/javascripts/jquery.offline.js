@@ -10,7 +10,7 @@
 jQuery.fn.offline = {
 	
 	STORE_NAME: "customer_management_offline_docset",
-	MANIFEST_FILENAME: "../offline_resources/cmmanifest.json",	
+	MANIFEST_FILENAME: "cmmanifest.json",	
 	DATABASE_NAME: "red-CustomersManagement",
 	
 	check: function(){
@@ -35,11 +35,16 @@ jQuery.fn.offline = {
 				
 				request = google.gears.factory.create('beta.httprequest');
 				if(db){
-					
+					db.open(this.DATABASE_NAME);
+					db.execute('create table if not exists isonline' + 
+			            ' (id INTEGER PRIMARY KEY AUTOINCREMENT,' +
+			            ' state varchar(254)' +
+			            ')' 
+			            );
 					// db.execute('BEGIN');
 					try{
-						ActiveRecord.connect(ActiveRecord.Adapters.Local,this.DATABASE_NAME);
-						this.CreateModel();
+						// ActiveRecord.connect(ActiveRecord.Adapters.Local,this.DATABASE_NAME);
+						// 					this.CreateModel();
 						
 						// db.execute('COMMIT');
 						// 						alert('commit after')
