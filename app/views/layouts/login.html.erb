@@ -11,41 +11,20 @@
       <title><%= AppConfig.app_name %></title>
     <%- end -%>
     <%= stylesheet_link_tag 'application' %>
-    <%= javascript_include_tag  %w[ js_app/lib/jquery js_app/lib/jamal js_app/lib/jsont ] %>
     
-    <%= javascript_include_tag  %w[ js_app/app_model ] %>
-    <%= javascript_include_tag  %w[ js_app/models/contact_data
-                                    js_app/models/customer
-                                    js_app/models/sync_engine ] %>
-    
-    <%= javascript_include_tag  %w[ js_app/app_view ] %>
-    <%= javascript_include_tag  %w[ js_app/views/customers ] %>
-    
-    <%= javascript_include_tag  %w[ js_app/app_controller ] %>
-    <%= javascript_include_tag  %w[ js_app/controllers/customers_controller ] %>
-    
-    <%= javascript_include_tag  %w[ js_app/plugins/jquery.form 
-                                    js_app/plugins/jquery.livequery
-                                    js_app/plugins/jquery.uuid 
-                                    js_app/plugins/jquery.json
-                                    js_app/plugins/jquery.datatables
-                                    jquery.init
-                                    jquery.offline ] %>
-    
-    <%= javascript_include_tag 'application' %>
     
     <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? %>
     <%= yield(:head) %>    
     
   </head>
-  <body class="jamal {controller:'Customers',action:'index',debug:true}">
+  <body>
     <div id="header">
       <div id="upper_menu">
         <% if logged_in? %>
           <label><%= h(current_user.login) %></label>
           <span class="" id="offline-status"> | 
-            <img width="11" height="11" src="/images/ico/off-connected-synced.gif" id="is-connected" class="" alt="" title="Currently online"/>
-            <img width="11" height="11" src="/images/ico/off-disconnected.gif" id="is-disconnected" class="hidden" alt="" title="Currently offline"/>
+            <img width="11" height="11" src="/images/ico/off-connected-synced.gif" id="is-connected" class="" alt="" title="Currently online: click to go offline"/>
+            <img width="11" height="11" src="/images/ico/off-disconnected.gif" id="is-disconnected" class="hidden" alt="" title="Currently offline: click to go online"/>
             <img width="11" height="11" src="/images/ico/off-connected-syncing.gif" id="is-syncing" class="hidden" alt="" title="Synchronizing..."/>
             <span id="has-gears" class="hidden"><a onclick="try { this.blur(); Offline.Dialog.showGears(); return false; } catch(e) {} " href="#">Offline</a></span>
             </span>
