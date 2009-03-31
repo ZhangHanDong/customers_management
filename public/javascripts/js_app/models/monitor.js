@@ -66,6 +66,7 @@ monitor = function (message) {
 	var db = google.gears.factory.create('beta.database');
 	db.open('red-CustomersManagement');
 	db.execute('update isonline set state=? where state=?;', ['offline',"online"]);
+	db.close();
       wp.sendMessage("offline", parentId);
     }
   }
