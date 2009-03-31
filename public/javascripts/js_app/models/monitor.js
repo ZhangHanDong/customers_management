@@ -1,5 +1,5 @@
 /**
-* The ChinldWorkerPool of Monitor user is online or offline
+* The ChinldWorkerPool of Monitor whether the system is online or offline
 *
 * Alex(blackanger.z@gmail.com)
 * 2009.3
