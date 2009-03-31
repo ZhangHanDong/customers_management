@@ -1,3 +1,10 @@
+/**
+ * The ChinldWorkerPool of Monitor user is online or offline 
+ *
+ * Alex(blackanger.z@gmail.com)
+ * 2009.3
+ */
+
 var POLLING_INTERVAL = 2000;
 
 var wp = google.gears.workerPool;
