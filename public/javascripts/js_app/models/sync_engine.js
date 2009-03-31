@@ -24,7 +24,7 @@ $j.m({ SyncEngine: {
         this.monitorChildWorkerPool(monitorchildWorkerId);
 	},
 	
-	
+	// monitor user is online or offline
 	monitorChildWorkerPool: function(monitorchildWorkerId){
 		workerPool.sendMessage(window.location + '?monitor', monitorchildWorkerId);
 	}
