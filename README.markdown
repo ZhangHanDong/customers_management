@@ -1,3 +1,6 @@
+# 更新
+ 这是基于Google Gears做的一个单页应用，算是遗迹了。。。
+ 
 # Customers Management
 this is a customers-management system, and an offline web application for my company. 
 
